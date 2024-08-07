@@ -1,0 +1,49 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panihari Garden & Restaurant Menu</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="menu">
+      <img src="paniharilogo.jpg" alt="Panihari Logo" class="logo" />
+      <div class="menu-content">
+        <div class="section-header">
+          <h2>Cold Beverages (ઠંડા પીણા)</h2>
+        </div>
+        <div class="menu-items" id="menu-items">
+          <!-- Menu items will be inserted here -->
+        </div>
+      </div>
+    </div>
+    <script>
+      async function fetchMenuItems() {
+        const response = await fetch('http://localhost:3000/api/menu?category=beverages');
+        const menuItems = await response.json();
+        const menuItemsContainer = document.getElementById('menu-items');
+
+        menuItems.forEach(item => {
+          const menuItemDiv = document.createElement('div');
+          menuItemDiv.classList.add('menu-item');
+          
+          const nameSpan = document.createElement('span');
+          nameSpan.textContent = `${item.name} (${item.nameGujarati})`;
+          
+          const priceSpan = document.createElement('span');
+          priceSpan.classList.add('price');
+          priceSpan.textContent = item.price;
+
+          menuItemDiv.appendChild(nameSpan);
+          menuItemDiv.appendChild(priceSpan);
+          
+          menuItemsContainer.appendChild(menuItemDiv);
+        });
+      }
+
+      fetchMenuItems();
+    </script>
+  </body>
+</html>

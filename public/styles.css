@@ -1,0 +1,148 @@
+:root {
+  --primary-color: rgb(110, 84, 49);
+  --hover-color: rgb(77, 58, 35);
+  --accent-color: #ff9800;
+  --bg-color: rgba(0, 0, 0, 0.857);
+  --text-color: #ffffff;
+  --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: url("StockCake-Feast of Flavors_1722171455.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+}
+
+.menu {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: var(--bg-color);
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+.menu img.logo {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+a {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  text-shadow: var(--text-shadow);
+  text-align: center;
+  text-decoration: none;
+  margin: 5px;
+}
+
+a:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.05);
+  box-shadow: var(--shadow);
+}
+
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-section {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.menu-section h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: var(--accent-color);
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  font-weight: 600;
+  color: var(--text-color);
+  width: 100%;
+}
+
+.menu-item:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.05);
+  box-shadow: var(--shadow);
+}
+
+.menu-item span {
+  flex: 1;
+  text-shadow: var(--text-shadow);
+}
+
+.menu-item .price {
+  font-weight: 700;
+  color: var(--accent-color);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  text-align: right;
+}
+
+/* Scrollable content */
+.scrollable {
+  max-height: 500px; /* Adjust height as needed */
+  overflow-y: auto;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .menu-content {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  a {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .menu-item {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 500px;
+  }
+
+  .menu-section h2 {
+    text-align: center;
+    width: 100%;
+  }
+}
