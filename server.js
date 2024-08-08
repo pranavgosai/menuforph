@@ -12,9 +12,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Replace with your MongoDB Atlas connection string
 const dbUri = 'mongodb+srv://pranavgosai01:nexLAidCDDyTxpXt@cluster0.y4ep2.mongodb.net/restaurant?retryWrites=true&w=majority';
 
+// Mongoose connection
 mongoose.connect(dbUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+});
+
+// Mongoose connection event listeners
+const db = mongoose.connection;
+db.on('connected', () => {
+  console.log('Mongoose is connected to the database.');
+});
+db.on('error', (err) => {
+  console.error('Mongoose connection error:', err);
+});
+db.on('disconnected', () => {
+  console.log('Mongoose is disconnected from the database.');
 });
 
 const MenuItem = mongoose.model('MenuItem', new mongoose.Schema({
